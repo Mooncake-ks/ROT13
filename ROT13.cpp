@@ -17,8 +17,7 @@ public:
     std::string encrypt(const std::string& mes, const TYPE_ALFH& type_alfh = EN);
     //Дешифрование
     std::string decrypt(const std::string& mes, const TYPE_ALFH& type_alfh = EN);
-
-    
+ 
 private:
     const int m_k = 13;
     std::string m_alfh;
@@ -34,28 +33,14 @@ int main()
     setlocale(LC_ALL, "Ru");
 
     ROT13 m_test;
+
     std::cout << "Testing RU ROT13:" << std::endl;
     std::cout << "Привет, мир! ->\t" << m_test.encrypt("Привет, мир!", TYPE_ALFH::RU) << std::endl;
     std::cout << "Ьэхося, щхэ! ->\t" << m_test.decrypt("Ьэхося, щхэ!", TYPE_ALFH::RU) << std::endl;
 
     std::cout << "\nTesting EN ROT13:" << std::endl;
     std::cout << "Hello, world! -> " << m_test.encrypt("Hello, world!") << std::endl;
-    std::cout << "Uryyb, jbeyq! -> " << m_test.decrypt("Uryyb, jbeyq!", TYPE_ALFH::RU) << std::endl;
-
-    /*
-    //В верхний регистр 
-    std::transform(n.cbegin(), n.cend(), n.begin(), [](unsigned char c) { return std::toupper(c); });
-    std::cout << n << std::endl;
-    // В нижний регистр
-    std::transform(n.cbegin(), n.cend(), n.begin(), [](unsigned char c) { return std::tolower(c); });
-    std::cout << n << std::endl;/*
-
-    /*std::cout << encrypt("HELLO",TYPE_ALFH::EN) << std::endl;
-    std::cout << decrypt("URYYB", TYPE_ALFH::EN) << std::endl;
-
-    std::cout << encrypt("ПРИВЕТ",TYPE_ALFH::RU) << std::endl;
-    std::cout << decrypt("ЬЭХОСЯ", TYPE_ALFH::RU) << std::endl;*/
-
+    std::cout << "Uryyb, jbeyq! -> " << m_test.decrypt("Uryyb, jbeyq!") << std::endl;
 
     return 0;
 }
